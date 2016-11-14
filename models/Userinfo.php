@@ -17,6 +17,12 @@ use Yii;
  */
 class Userinfo extends \yii\db\ActiveRecord
 {
+    private $id;
+    private $username;
+    private $create_time;
+    private $login_time;
+    private $login_ip;
+    private $nick;
     /**
      * @inheritdoc
      */
@@ -52,5 +58,9 @@ class Userinfo extends \yii\db\ActiveRecord
             'login_ip' => 'Login Ip',
             'nick' => 'Nick',
         ];
+    }
+    public function create() {
+        $this->password=md5($this->password);
+        return $this->save();
     }
 }

@@ -38,7 +38,7 @@ class UserinfoController extends Controller
         $searchModel = new UserinfoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
+        return $this->render('/admin/userinfo/index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -51,7 +51,7 @@ class UserinfoController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
+        return $this->render('/admin/userinfo/view', [
             'model' => $this->findModel($id),
         ]);
     }
@@ -64,11 +64,11 @@ class UserinfoController extends Controller
     public function actionCreate()
     {
         $model = new Userinfo();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+    
+        if ($model->load(Yii::$app->request->post()) && $model->create()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('create', [
+            return $this->render('/admin/userinfo/create', [
                 'model' => $model,
             ]);
         }
@@ -87,7 +87,7 @@ class UserinfoController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('update', [
+            return $this->render('/admin/userinfo/update', [
                 'model' => $model,
             ]);
         }
@@ -103,7 +103,7 @@ class UserinfoController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['/admin/userinfo/index']);
     }
 
     /**
