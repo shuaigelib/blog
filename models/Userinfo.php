@@ -17,12 +17,6 @@ use Yii;
  */
 class Userinfo extends \yii\db\ActiveRecord
 {
-    private $id;
-    private $username;
-    private $create_time;
-    private $login_time;
-    private $login_ip;
-    private $nick;
     /**
      * @inheritdoc
      */
@@ -60,7 +54,118 @@ class Userinfo extends \yii\db\ActiveRecord
         ];
     }
     public function create() {
-        $this->password=md5($this->password);
         return $this->save();
     }
+ /**
+     * @return $id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+ /**
+     * @return $username
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+ /**
+     * @return $password
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+ /**
+     * @return $create_time
+     */
+    public function getCreate_time()
+    {
+        return $this->create_time;
+    }
+
+ /**
+     * @return $login_time
+     */
+    public function getLogin_time()
+    {
+        return $this->login_time;
+    }
+
+ /**
+     * @return $login_ip
+     */
+    public function getLogin_ip()
+    {
+        return $this->login_ip;
+    }
+
+ /**
+     * @return $nick
+     */
+    public function getNick()
+    {
+        return $this->nick;
+    }
+
+ /**
+     * @param !CodeTemplates.settercomment.paramtagcontent!
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+ /**
+     * @param !CodeTemplates.settercomment.paramtagcontent!
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+
+ /**
+     * @param !CodeTemplates.settercomment.paramtagcontent!
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+ /**
+     * @param !CodeTemplates.settercomment.paramtagcontent!
+     */
+    public function setCreate_time($create_time)
+    {
+        $this->create_time = $create_time;
+    }
+
+ /**
+     * @param !CodeTemplates.settercomment.paramtagcontent!
+     */
+    public function setLogin_time($login_time)
+    {
+        $this->login_time = $login_time;
+    }
+
+ /**
+     * @param !CodeTemplates.settercomment.paramtagcontent!
+     */
+    public function setLogin_ip($login_ip)
+    {
+        $this->login_ip = $login_ip;
+    }
+
+ /**
+     * @param !CodeTemplates.settercomment.paramtagcontent!
+     */
+    public function setNick($nick)
+    {
+        $this->nick = $nick;
+    }
+
 }
